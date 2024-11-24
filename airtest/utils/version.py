@@ -1,11 +1,11 @@
-__version__ = "1.3.5"
+__version__ = '1.3.6'
 
 import os
 import sys
 
 
 def get_airtest_version():
-    pip_pkg_dir = os.path.join(os.path.dirname(__file__), "..", "..")
+    pip_pkg_dir = os.path.join(os.path.dirname(__file__), '..', '..')
     pip_pkg_dir = os.path.abspath(pip_pkg_dir)
 
     return (
