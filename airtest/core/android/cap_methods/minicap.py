@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import os
 import re
 import traceback
@@ -136,16 +136,16 @@ class Minicap(BaseCap):
         device_dir = "/data/local/tmp"
 
         path = os.path.join(STFLIB, abi, binfile)
-        self.adb.push(path, "%s/minicap" % device_dir)
-        self.adb.shell("chmod 755 %s/minicap" % device_dir)
+        self.adb.push(path, device_dir)
+        self.adb.shell(f"chmod 755 {device_dir}/minicap")
 
         pattern = os.path.join(STFLIB, 'minicap-shared/aosp/libs/android-%s/%s/minicap.so')
         path = pattern % (sdk, abi)
         if not os.path.isfile(path):
             path = pattern % (rel, abi)
 
-        self.adb.push(path, "%s/minicap.so" % device_dir)
-        self.adb.shell("chmod 755 %s/minicap.so" % device_dir)
+        self.adb.push(path, device_dir)
+        self.adb.shell(f"chmod 755 {device_dir}/minicap.so")
         LOGGING.info("minicap installation finished")
 
     @on_method_ready('install_or_upgrade')
